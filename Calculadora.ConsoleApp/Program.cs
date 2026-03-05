@@ -1,4 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using System.IO.Compression;
 using System.Net;
 
 // Requesito 1: Nossa calculadora deve permitir a soma de dois números
@@ -21,6 +22,7 @@ while (deveContinuar) // Condição
     Console.WriteLine("2 - Subtração");
     Console.WriteLine("3 - Multiplicação");
     Console.WriteLine("4 - Divisão");
+    Console.WriteLine("5 - Tabuada");
     Console.WriteLine("S - Sair");
 
     Console.WriteLine();
@@ -33,32 +35,78 @@ while (deveContinuar) // Condição
         deveContinuar = false;
         continue;
     }
-    else if (operacaoSelecionada != "1" &&
-             operacaoSelecionada != "2" &&
-             operacaoSelecionada != "3" &&
-             operacaoSelecionada != "4")
+    // else if (operacaoSelecionada != "1" &&
+    //          operacaoSelecionada != "2" &&
+    //          operacaoSelecionada != "3" &&
+    //          operacaoSelecionada != "4")
+    // {
+    //     Console.WriteLine("Operação Invalida!");
+    //     Console.WriteLine("Precione ENTER e tente novamente");
+    //     Console.ReadLine();
+    //     continue;
+    // }
+    
+    //Lógica da tabuada
+
+    if (operacaoSelecionada == "5")
     {
-        Console.WriteLine("Operação Invalida!");
-        Console.WriteLine("Precione ENTER e tente novamente");
+        Console.Write("Digite o número que deseja gerar a tabuada: ");
+
+        int numeroTabuada = Convert.ToInt32(Console.ReadLine());
+
+        // para cada...
+        // 1. contador/iterador
+        // 2. enquanto a condição for verdadeira...
+        // 3. iteração da variável contadora
+        
+        for (int contador = 1; contador <= 10; contador = contador +1)
+        {
+            int resultadoTabuada = numeroTabuada * contador;
+
+            string operacaoTabuada = numeroTabuada + " x " + contador + " = " + resultadoTabuada;
+            
+            Console.WriteLine(operacaoTabuada);
+        }
+
         Console.ReadLine();
+
         continue;
+
     }
-    
-    
+
+    // Lógica das Operações de Cálculo
+
     Console.Write("Digite o primeiro número: ");
-    decimal primeiroNumero = Convert.ToDecimal(Console.ReadLine());
+    string? strPrimeiroNumero = Console.ReadLine();
 
     Console.Write("Digite o segundo número: ");
-    decimal segundoNumero = Convert.ToDecimal(Console.ReadLine());
+    string? strSegundoNumero = Console.ReadLine();
     
     Console.WriteLine();
 
-    Console.WriteLine("O primeiro número digitado foi: " + primeiroNumero);
-    Console.WriteLine("O segundo número digitado foi: " + segundoNumero);
+    Console.WriteLine("O primeiro número digitado foi: " + strPrimeiroNumero);
+    Console.WriteLine("O segundo número digitado foi: " + strSegundoNumero);
 
-    decimal resultado = 0;
+    Console.WriteLine();
 
-    switch (operacaoSelecionada)
+    bool primeiroNumeroVazio = string.IsNullOrEmpty(strPrimeiroNumero);
+    bool segundoNumeroVazio = string.IsNullOrEmpty(strSegundoNumero);
+
+    if (primeiroNumeroVazio == true || segundoNumeroVazio == true)
+    {
+        Console.Write("Digite um número válido!");
+        Console.ReadLine();
+
+        continue;
+    }
+
+
+    decimal primeiroNumero = Convert.ToDecimal(strPrimeiroNumero);
+    decimal segundoNumero = Convert.ToDecimal(strSegundoNumero);
+
+    decimal resultado;
+
+    switch (operacaoSelecionada) // operador do switch
     {
         case "1":
         resultado = primeiroNumero + segundoNumero;
