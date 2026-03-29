@@ -1,6 +1,6 @@
 # Calculadora 2026
 
-![](https://imgur.com/a/9ialfU6)
+![](.docs/Calculadora.gif)
 ## Introdução
 
 Uma calculadora de console simples mas poderosa que permita realizar as quatro operações matemáticas, além de visualização do histórico de operações e tabuada.
