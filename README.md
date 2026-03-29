@@ -1,6 +1,6 @@
 # Calculadora 2026
 
-![Demo](https://raw.githubusercontent.com/alexandrerocha15/Calculadora/v3/docs/NOME_DO_GIF.gif)
+![](https://imgur.com/a/9ialfU6)
 ## Introdução
 
 Uma calculadora de console simples mas poderosa que permita realizar as quatro operações matemáticas, além de visualização do histórico de operações e tabuada.
